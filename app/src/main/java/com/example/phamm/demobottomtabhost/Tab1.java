@@ -20,15 +20,15 @@ import java.util.ArrayList;
  */
 
 public class Tab1 extends ListFragment {
-    OnHeadlineSelectedListener mCallback;
+   Callback mCallback;
     Activity activity;
     String[] arr = new String[10];
     ArrayAdapter adapter;
     Button btnthem;
     ArrayList<String> arr1;
-    public interface OnHeadlineSelectedListener {
+    public interface Callback {
         /** Called by HeadlinesFragment when a list item is selected */
-        public void onArticleSelected(int position);
+        public void onClick(int position);
     }
 
     @Override
@@ -83,12 +83,12 @@ public class Tab1 extends ListFragment {
         transaction.replace(R.id.linearlayout1,tab1);
         transaction.commit();
         Toast.makeText(getActivity(), ""+position, Toast.LENGTH_SHORT).show();
-        mCallback.onArticleSelected(position);
+        mCallback.onClick(position);
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        mCallback = (OnHeadlineSelectedListener)activity;
+        mCallback = (Callback) activity;
     }
 }

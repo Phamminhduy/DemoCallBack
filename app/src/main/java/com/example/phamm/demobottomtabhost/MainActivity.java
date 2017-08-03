@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.TabHost;
 
-public class MainActivity extends FragmentActivity implements TabHost.OnTabChangeListener,ViewPager.OnPageChangeListener,Tab1.OnHeadlineSelectedListener{
+public class MainActivity extends FragmentActivity implements TabHost.OnTabChangeListener,ViewPager.OnPageChangeListener,Tab1.Callback{
     ViewPager viewPager;
     TabHost mTabHost;
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -66,7 +66,7 @@ public class MainActivity extends FragmentActivity implements TabHost.OnTabChang
     }
 
     @Override
-    public void onArticleSelected(int position) {
+    public void onClick(int position) {
         finish();
     }
 }
